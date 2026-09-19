@@ -1,9 +1,6 @@
-Here's the raw markdown, with simple text-based diagrams so it stays readable in any plain README viewer:
-
-```markdown
 # Tokenization in NLP — Beginner's Guide
 
-Tokenization is the **first step** in almost every NLP pipeline. This guide explains what it is, why it matters, and how it works — with visuals to make it click.
+Tokenization is the **first step** in almost every NLP pipeline. This guide explains what it is, why it matters, and how it works.
 
 ---
 
@@ -11,12 +8,9 @@ Tokenization is the **first step** in almost every NLP pipeline. This guide expl
 
 Tokenization means breaking raw text into smaller pieces called **tokens** — usually words or sentences — so a computer can process them one by one.
 
-```
-"I love NLP!"
-        │
-        ▼  (tokenize)
-   ["I", "love", "NLP", "!"]
-```
+**Example:**
+
+`"I love NLP!"` → tokenize → `["I", "love", "NLP", "!"]`
 
 Think of it like chopping a sentence into Lego blocks. Each block (token) can then be studied, counted, or converted into numbers for a model.
 
@@ -24,29 +18,16 @@ Think of it like chopping a sentence into Lego blocks. Each block (token) can th
 
 ## 🧩 Why Do We Need It?
 
-Computers can't understand a sentence as one big blob of text. Tokenization breaks it down into manageable units first.
+Computers can't understand a sentence as one big blob of text. Tokenization breaks it down first.
 
-```
+**Input:** `"NLP is fun. Let's learn!"`
 
- RAW TEXT
-┌─────────────────────────────┐
-│ "NLP is fun. Let's learn!"  │
-└─────────────────────────────┘
-              │
-              ▼
-      TOKENIZATION
-              │
-              ▼
-┌─────────────────────────────┐
-│ Sentences:                  │
-│  1. "NLP is fun."            │
-│  2. "Let's learn!"           │
-│                              │
-│ Words:                      │
-│  ["NLP","is","fun",".",     │
-│   "Let's","learn","!"]       │
-└─────────────────────────────┘
-```
+**Step 1 — Sentence tokens:**
+1. `"NLP is fun."`
+2. `"Let's learn!"`
+
+**Step 2 — Word tokens:**
+`["NLP", "is", "fun", ".", "Let's", "learn", "!"]`
 
 ---
 
@@ -55,24 +36,16 @@ Computers can't understand a sentence as one big blob of text. Tokenization brea
 ### 1. Word Tokenization
 Splits text into individual words.
 
-```
-Input:  "Cats are great pets"
-Output: [ "Cats" | "are" | "great" | "pets" ]
-          box     box     box       box
-```
+| Input | Output |
+|---|---|
+| `"Cats are great pets"` | `Cats` \| `are` \| `great` \| `pets` |
 
 ### 2. Sentence Tokenization
 Splits text into individual sentences.
 
-```
-Input:  "I like tea. I like coffee too."
-Output:
-  ┌───────────────────┐  ┌────────────────────────┐
-  │ "I like tea."      │  │ "I like coffee too."    │
-  └───────────────────┘  └────────────────────────┘
-      Sentence 1              Sentence 2
-
-```
+| Input | Sentence 1 | Sentence 2 |
+|---|---|---|
+| `"I like tea. I like coffee too."` | `I like tea.` | `I like coffee too.` |
 
 ---
 
@@ -90,11 +63,7 @@ Punctuation, contractions, and abbreviations are why we use libraries like NLTK 
 
 ## 🛠️ How It Fits in the NLP Pipeline
 
-```
-Raw Text → [ Tokenization ] → Cleaning → Vectorization → Model → Output
-              ▲
-        You are here
-```
+**Raw Text → Tokenization → Cleaning → Vectorization → Model → Output**
 
 Tokenization always comes **first** — every later step (removing stopwords, stemming, converting to numbers) depends on tokens already being split out.
 
@@ -106,4 +75,3 @@ Tokenization always comes **first** — every later step (removing stopwords, st
 - It's the **first step** of any NLP pipeline
 - Naive space-splitting fails on punctuation, contractions, abbreviations
 - Libraries like NLTK/spaCy handle these edge cases correctly
-```
